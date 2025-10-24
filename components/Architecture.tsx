@@ -1,28 +1,34 @@
 import React from 'react';
 import {
-  ComputerDesktopIcon,
-  CodeBracketSquareIcon,
-  ArrowsRightLeftIcon,
-  CpuChipIcon,
   CircleStackIcon,
-  LockClosedIcon,
-  CloudIcon,
-  ChevronRightIcon,
+  CpuChipIcon,
+  SparklesIcon,
+  ShieldCheckIcon,
   CheckBadgeIcon,
 } from '@heroicons/react/24/outline';
 
-const architectureData = {
-  title: 'High-Level Architecture',
-  layers: [
-    { name: 'User Interface', tech: 'Next.js, React, Tailwind', icon: ComputerDesktopIcon },
-    { name: 'API Gateway', tech: 'FastAPI / NestJS', icon: CodeBracketSquareIcon },
-    { name: 'ETL & Sync', tech: 'Airflow, Pandas, dbt', icon: ArrowsRightLeftIcon },
-    { name: 'AI & Knowledge Layer', tech: 'LangChain, Transformers', icon: CpuChipIcon },
-    { name: 'Security & Auth', tech: 'OAuth2, Vault, RBAC', icon: LockClosedIcon },
-    { name: 'Unified Data Store', tech: 'Postgres, Elastic, S3', icon: CircleStackIcon },
-    { name: 'External Connectors', tech: 'Salesforce, GDrive, Slack', icon: CloudIcon },
-  ],
-};
+const unifiedAiPillars = [
+  {
+    name: 'Unified Data Engine',
+    description: 'Connects, cleans, and structures all enterprise data. Features multi-source ingestion, auto-ETL, and semantic unification for AI training.',
+    icon: CircleStackIcon,
+  },
+  {
+    name: 'Model Orchestrator',
+    description: 'Fine-tunes foundation models (Gemini, Llama, Claude) and routes queries to the best open or closed-source model for the task.',
+    icon: CpuChipIcon,
+  },
+  {
+    name: 'Agentic Workspace',
+    description: 'Builds domain-specific AI copilots and agents that continuously learn from user interactions, automating workflows across business tools.',
+    icon: SparklesIcon,
+  },
+  {
+    name: 'Evaluation Layer (SEAL)',
+    description: 'Ensures model safety, accuracy, and alignment for enterprise use cases through rigorous RLHF and in-house evaluation labs.',
+    icon: ShieldCheckIcon,
+  },
+];
 
 const roadmapData = [
     { phase: 1, title: 'MVP Build', duration: '0-3 Months', deliverables: ['Core Backend & Auth', 'Integrations: GDrive, SQL, Slack', 'Dashboard UI & AI Chat', 'Basic Data Unification'] },
@@ -40,19 +46,21 @@ const techStackData = [
     { category: 'Infrastructure & DevOps', techs: ['Docker', 'Kubernetes (EKS)', 'Terraform', 'GitHub Actions', 'Prometheus', 'Grafana'] },
 ];
 
-const ArchitectureDiagram: React.FC = () => (
+const UnifiedAiPillarsDiagram: React.FC = () => (
   <div className="bg-brand-secondary p-6 rounded-xl shadow-lg">
-    <h2 className="text-xl font-semibold text-brand-text mb-6">{architectureData.title}</h2>
-    <div className="relative">
-      <div className="grid grid-cols-1 md:grid-cols-7 gap-4 text-center">
-        {architectureData.layers.map((layer, index) => (
-          <div key={layer.name} className="flex flex-col items-center p-3 bg-brand-primary rounded-lg">
-            <layer.icon className="h-8 w-8 text-brand-cyan mb-2" />
-            <h3 className="font-semibold text-sm text-brand-text">{layer.name}</h3>
-            <p className="text-xs text-brand-light">{layer.tech}</p>
+    <h2 className="text-xl font-semibold text-brand-text mb-6">Core Architecture Pillars</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {unifiedAiPillars.map((pillar) => (
+        <div key={pillar.name} className="bg-brand-primary p-5 rounded-lg flex items-start space-x-4">
+          <div className="bg-brand-accent p-3 rounded-full shrink-0">
+            <pillar.icon className="h-7 w-7 text-brand-cyan" />
           </div>
-        ))}
-      </div>
+          <div>
+            <h3 className="font-bold text-brand-text text-lg">{pillar.name}</h3>
+            <p className="text-sm text-brand-light mt-1">{pillar.description}</p>
+          </div>
+        </div>
+      ))}
     </div>
   </div>
 );
@@ -104,9 +112,9 @@ export const Architecture: React.FC = () => {
   return (
     <div className="container mx-auto">
       <h1 className="text-2xl md:text-3xl font-bold text-brand-text mb-6">System Architecture & Roadmap</h1>
-      <p className="text-brand-light mb-8 max-w-3xl">This outlines the technical architecture, data flow, and execution plan for building and scaling UnifiedAI, creating a universal, self-learning layer that understands and unifies all company data.</p>
+      <p className="text-brand-light mb-8 max-w-3xl">Inspired by Scale AI's full-stack enterprise platform, this outlines the core architecture for UnifiedAI. Our system is designed around four key pillars to create a universal, self-learning layer that unifies all company data and drives intelligent action.</p>
       <div className="space-y-8">
-        <ArchitectureDiagram />
+        <UnifiedAiPillarsDiagram />
         <Roadmap />
         <TechStack />
       </div>
