@@ -58,56 +58,83 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for detailed documentation.
 
 ---
 
-## Quick Start
+## 🚀 Quick Deploy to Free Hosting (5 Minutes)
+
+Deploy UnifiedAI to the cloud for FREE:
+
+```bash
+bash deploy.sh
+```
+
+**Free hosting includes:**
+- ✅ Vercel (Frontend) - Unlimited bandwidth
+- ✅ Railway (Backend) - $5/month credit, no CC required
+- ✅ Supabase (Database) - 500MB PostgreSQL
+
+**Total Cost: $0/month**
+
+📖 **[Full Deployment Guide](docs/QUICK_DEPLOY.md)** | 📚 **[Detailed Instructions](docs/FREE_DEPLOYMENT_GUIDE.md)**
+
+---
+
+## 💻 Run Locally
 
 ### Prerequisites
 
 - Node.js 18+
 - npm or yarn
 
-### Run Locally
+### Option 1: Quick Start (Recommended)
 
-**Frontend (Dashboard UI):**
+```bash
+# 1. Install dependencies
+npm install
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
+# 2. Set up environment
+cp .env.example .env.local
+# Edit .env.local and add your GEMINI_API_KEY
 
-2. Set up environment variables:
-   ```bash
-   cp .env.example .env.local
-   # Edit .env.local and add your API keys
-   ```
-
-3. Run the frontend:
-   ```bash
-   npm run dev
-   ```
-
-**Backend Services:**
-
-4. Install backend dependencies:
-   ```bash
-   cd services/backend
-   npm install
-   ```
-
-5. Run the backend:
-   ```bash
-   npm run dev
-   ```
-
-**Full Platform (All Four Pillars):**
-
-6. Start the unified platform:
-   ```bash
-   cd services/unified-platform
-   npm install
-   npm run dev
-   ```
+# 3. Run development server
+npm run dev
+```
 
 The app will be available at `http://localhost:3000`
+
+### Option 2: Full Stack with Docker
+
+```bash
+# Start all services (PostgreSQL, Redis, Elasticsearch, etc.)
+cd infrastructure/docker
+docker-compose up -d
+
+# Access services:
+# - Frontend: http://localhost:3000
+# - Backend: http://localhost:8000
+# - Airflow: http://localhost:8080
+# - Grafana: http://localhost:3001
+```
+
+### Option 3: Individual Services
+
+**Frontend:**
+```bash
+npm install
+npm run dev
+```
+
+**Backend:**
+```bash
+cd services/backend
+npm install
+npm run dev
+```
+
+**Unified Platform (All Four Pillars):**
+```bash
+cd services/unified-platform
+npm install
+npm run dev
+```
 
 ---
 
