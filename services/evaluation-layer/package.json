@@ -1,0 +1,28 @@
+{
+  "name": "@unifiedai/evaluation-layer",
+  "version": "1.0.0",
+  "description": "Evaluation Layer (SEAL) - Safety, Evaluation, Accuracy, and aLignment framework",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsc",
+    "test": "jest"
+  },
+  "keywords": [
+    "evaluation",
+    "safety",
+    "rlhf",
+    "bias-detection",
+    "ai-safety"
+  ],
+  "author": "UnifiedAI",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.3"
+  }
+}
