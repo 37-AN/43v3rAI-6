@@ -11,7 +11,7 @@ import { Settings } from './components/Settings';
 import { sendChatMessage } from './services/geminiService';
 import { KPI_DATA, REVENUE_DATA, LEAD_SOURCE_DATA, CONNECTORS_DATA } from './constants';
 import type { Kpi, RevenueData, LeadSource, Connector, ChatMessage, ActiveView } from './types';
-import { SparklesIcon } from '@heroicons/react/24/outline';
+import { SparklesIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 
 const App: React.FC = () => {
   const [kpis, setKpis] = useState<Kpi[]>(KPI_DATA);
