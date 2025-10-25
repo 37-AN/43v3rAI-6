@@ -1,0 +1,76 @@
+{
+  "mcpServers": {
+    "memory": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
+      "description": "Persistent conversation memory across sessions"
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/home/user/43v3rAI-6"
+      ],
+      "description": "Access to project filesystem"
+    },
+    "git": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-git",
+        "--repository",
+        "/home/user/43v3rAI-6"
+      ],
+      "description": "Git operations and repository history"
+    },
+    "postgres": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "postgresql://unifiedai_admin:dev_password@localhost:5432/unifiedai"
+      ],
+      "description": "PostgreSQL database operations",
+      "disabled": true,
+      "note": "Enable after starting Docker services"
+    },
+    "brave-search": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-brave-search"
+      ],
+      "env": {
+        "BRAVE_API_KEY": "${BRAVE_API_KEY}"
+      },
+      "description": "Web search capabilities",
+      "disabled": true,
+      "note": "Optional - requires BRAVE_API_KEY"
+    },
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      },
+      "description": "GitHub API access for issues, PRs, etc.",
+      "disabled": true,
+      "note": "Optional - requires GITHUB_TOKEN"
+    }
+  },
+  "globalShortcuts": {
+    "memory.store": "Store important context in memory",
+    "memory.retrieve": "Retrieve stored context from memory",
+    "git.status": "Check git status",
+    "git.log": "View git history",
+    "filesystem.read": "Read file contents",
+    "filesystem.write": "Write to file"
+  }
+}

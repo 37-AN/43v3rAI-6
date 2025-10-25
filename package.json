@@ -1,12 +1,29 @@
 {
-  "name": "copy-of-data-convergence-ai",
+  "name": "43v3rAI-6",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "workspaces": [
+    "services/*"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev:backend": "cd services/backend && npm run dev",
+    "dev:platform": "cd services/unified-platform && npm run dev",
+    "dev:all": "concurrently \"npm run dev\" \"npm run dev:backend\"",
+    "docker:up": "cd infrastructure/docker && docker-compose up -d",
+    "docker:down": "cd infrastructure/docker && docker-compose down",
+    "docker:logs": "cd infrastructure/docker && docker-compose logs -f",
+    "db:migrate": "cd infrastructure/database && bash migrate.sh",
+    "db:seed": "cd infrastructure/database && bash seed.sh",
+    "db:reset": "npm run docker:down && npm run docker:up && sleep 5 && npm run db:migrate",
+    "setup": "bash setup.sh",
+    "lint": "eslint . --ext .ts,.tsx",
+    "test": "echo \"Tests not yet implemented\" && exit 0",
+    "test:watch": "echo \"Tests not yet implemented\" && exit 0",
+    "test:coverage": "echo \"Tests not yet implemented\" && exit 0"
   },
   "dependencies": {
     "@google/genai": "^1.27.0",
