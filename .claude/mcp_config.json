@@ -13,7 +13,7 @@
       "args": [
         "-y",
         "@modelcontextprotocol/server-filesystem",
-        "/home/user/43v3rAI-6"
+        "C:\\Users\\perc7\\Desktop\\dev\\43v3rAI-6"
       ],
       "description": "Access to project filesystem"
     },
@@ -23,7 +23,7 @@
         "-y",
         "@modelcontextprotocol/server-git",
         "--repository",
-        "/home/user/43v3rAI-6"
+        "C:\\Users\\perc7\\Desktop\\dev\\43v3rAI-6"
       ],
       "description": "Git operations and repository history"
     },
@@ -36,7 +36,39 @@
       ],
       "description": "PostgreSQL database operations",
       "disabled": true,
-      "note": "Enable after starting Docker services"
+      "note": "Enable after starting Docker services with 'npm run docker:up'"
+    },
+    "api-testing": {
+      "command": "node",
+      "args": [
+        "--loader",
+        "tsx",
+        "mcp-servers/api-testing/index.ts"
+      ],
+      "cwd": "C:\\Users\\perc7\\Desktop\\dev\\43v3rAI-6",
+      "description": "API testing and debugging tools for backend endpoints"
+    },
+    "business-analytics": {
+      "command": "python",
+      "args": [
+        "-m",
+        "fastmcp",
+        "run",
+        "mcp-servers/business-analytics/server.py"
+      ],
+      "cwd": "C:\\Users\\perc7\\Desktop\\dev\\43v3rAI-6",
+      "description": "Business metrics, KPIs, revenue data, and customer analytics"
+    },
+    "workflow-engine": {
+      "command": "python",
+      "args": [
+        "-m",
+        "fastmcp",
+        "run",
+        "mcp-servers/workflow-engine/server.py"
+      ],
+      "cwd": "C:\\Users\\perc7\\Desktop\\dev\\43v3rAI-6",
+      "description": "Workflow automation and execution management"
     },
     "brave-search": {
       "command": "npx",
@@ -49,7 +81,7 @@
       },
       "description": "Web search capabilities",
       "disabled": true,
-      "note": "Optional - requires BRAVE_API_KEY"
+      "note": "Optional - requires BRAVE_API_KEY in environment"
     },
     "github": {
       "command": "npx",
@@ -62,7 +94,7 @@
       },
       "description": "GitHub API access for issues, PRs, etc.",
       "disabled": true,
-      "note": "Optional - requires GITHUB_TOKEN"
+      "note": "Optional - uses GITHUB_TOKEN from .env.local if enabled"
     }
   },
   "globalShortcuts": {
@@ -71,6 +103,11 @@
     "git.status": "Check git status",
     "git.log": "View git history",
     "filesystem.read": "Read file contents",
-    "filesystem.write": "Write to file"
+    "filesystem.write": "Write to file",
+    "api-testing.test_endpoint": "Test an API endpoint",
+    "api-testing.test_backend_health": "Check 43v3rAI backend health",
+    "business-analytics.get_dashboard_summary": "Get complete dashboard KPIs",
+    "workflow-engine.list_workflows": "List all automation workflows",
+    "workflow-engine.execute_workflow": "Run a workflow"
   }
 }

@@ -17,8 +17,8 @@
   "author": "UnifiedAI",
   "license": "MIT",
   "dependencies": {
-    "langchain": "^0.1.0",
-    "langgraph": "^0.0.19"
+    "@langchain/core": "^0.1.0",
+    "@langchain/langgraph": "^0.0.19"
   },
   "devDependencies": {
     "@types/node": "^20.14.0",
