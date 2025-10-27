@@ -1,52 +1,31 @@
 {
-  "name": "43v3rAI-6",
+  "name": "copy-of-data-convergence-ai",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "workspaces": [
-    "services/*"
-  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "dev:backend": "cd services/backend && npm run dev",
-    "dev:platform": "cd services/unified-platform && npm run dev",
-    "dev:all": "concurrently \"npm run dev\" \"npm run dev:backend\"",
-    "docker:up": "cd infrastructure/docker && docker-compose up -d",
-    "docker:down": "cd infrastructure/docker && docker-compose down",
-    "docker:logs": "cd infrastructure/docker && docker-compose logs -f",
-    "db:migrate": "cd infrastructure/database && bash migrate.sh",
-    "db:seed": "cd infrastructure/database && bash seed.sh",
-    "db:reset": "npm run docker:down && npm run docker:up && sleep 5 && npm run db:migrate",
-    "setup": "bash setup.sh",
-    "lint": "eslint . --ext .ts,.tsx",
-    "test": "echo \"Tests not yet implemented\" && exit 0",
-    "test:watch": "echo \"Tests not yet implemented\" && exit 0",
-    "test:coverage": "echo \"Tests not yet implemented\" && exit 0"
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@fastify/cors": "^11.1.0",
-    "@google/generative-ai": "^0.21.0",
-    "@heroicons/react": "^2.2.0",
-    "@tailwindcss/postcss": "^4.1.16",
-    "axios": "^1.12.2",
-    "csv-parser": "^3.2.0",
-    "dotenv": "^17.2.3",
-    "fastify": "^5.6.1",
-    "fs": "^0.0.1-security",
-    "path": "^0.12.7",
-    "process": "^0.11.10",
+    "@google/genai": "^1.27.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "recharts": "^3.3.0"
+    "@heroicons/react": "^2.2.0",
+    "recharts": "^3.3.0",
+    "dotenv": "^17.2.3",
+    "process": "^0.11.10",
+    "@fastify/cors": "^11.1.0",
+    "fastify": "^5.6.1",
+    "axios": "^1.12.2",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "csv-parser": "^3.2.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
-    "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.16",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
   }

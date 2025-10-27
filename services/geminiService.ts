@@ -1,4 +1,4 @@
-const BACKEND_URL = 'http://localhost:4000';
+const BACKEND_URL = 'http://localhost:8000';
 
 export async function sendChatMessage(dashboardData: object, message: string): Promise<string> {
     try {

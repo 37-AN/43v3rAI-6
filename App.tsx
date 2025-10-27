@@ -76,72 +76,38 @@ const App: React.FC = () => {
     switch (activeView) {
       case 'dashboard':
         return (
-          <div className="space-y-6 animate-fade-in">
-            {/* Header */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div>
-                <h1 className="text-3xl font-bold text-white mb-2">Dashboard Overview</h1>
-                <p className="text-dark-400">Real-time analytics and insights for your business</p>
-              </div>
-              <div className="flex items-center space-x-2">
-                <select className="px-4 py-2 bg-dark-800 border border-dark-700 rounded-lg text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
-                  <option>Last 7 days</option>
-                  <option>Last 30 days</option>
-                  <option>Last 90 days</option>
-                </select>
-              </div>
-            </div>
-
-            {/* KPI Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="container mx-auto">
+            <h1 className="text-2xl md:text-3xl font-bold text-brand-text mb-6">Unified Dashboard</h1>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6">
               {kpis.map((kpi) => (
                 <KpiCard key={kpi.title} {...kpi} />
               ))}
             </div>
 
-            {/* Charts and Insights */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Charts Column */}
-              <div className="lg:col-span-2 space-y-6">
-                <div className="bg-dark-900 border border-dark-800 rounded-xl p-6 hover:border-dark-700 transition-all duration-300">
-                  <div className="flex items-center justify-between mb-6">
-                    <h2 className="text-xl font-semibold text-white">Revenue Trend</h2>
-                    <div className="flex items-center space-x-2 text-sm">
-                      <span className="text-dark-400">Compare:</span>
-                      <button className="px-3 py-1 bg-dark-800 rounded-lg text-white hover:bg-dark-700 transition">Week</button>
-                      <button className="px-3 py-1 text-dark-400 hover:text-white transition">Month</button>
-                    </div>
-                  </div>
-                  <div className="h-80">
-                    <RevenueChart data={revenueData} />
-                  </div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
+              <div className="lg:col-span-2 flex flex-col gap-6">
+                <div className="bg-brand-secondary p-4 md:p-6 rounded-xl shadow-lg h-80">
+                  <h2 className="text-xl font-semibold text-brand-text mb-4">Revenue Over Time</h2>
+                  <RevenueChart data={revenueData} />
                 </div>
-
-                <div className="bg-dark-900 border border-dark-800 rounded-xl p-6 hover:border-dark-700 transition-all duration-300">
-                  <h2 className="text-xl font-semibold text-white mb-6">Lead Sources Distribution</h2>
-                  <div className="h-80">
-                    <LeadSourceChart data={leadSourceData} />
-                  </div>
+                <div className="bg-brand-secondary p-4 md:p-6 rounded-xl shadow-lg h-80">
+                  <h2 className="text-xl font-semibold text-brand-text mb-4">Lead Sources</h2>
+                  <LeadSourceChart data={leadSourceData} />
                 </div>
               </div>
 
-              {/* AI Insights Column */}
-              <div className="lg:col-span-1">
-                <div className="sticky top-6 bg-dark-900 border border-dark-800 rounded-xl p-6 hover:border-dark-700 transition-all duration-300 h-[calc(100vh-120px)]">
-                  <div className="flex items-center space-x-2 mb-6">
-                    <div className="p-2 bg-gradient-to-br from-brand-500 to-accent-purple rounded-lg">
-                      <SparklesIcon className="h-5 w-5 text-white" />
-                    </div>
-                    <div>
-                      <h2 className="text-lg font-semibold text-white">AI Assistant</h2>
-                      <p className="text-xs text-dark-400">Powered by Gemini</p>
-                    </div>
-                  </div>
-                  <AiInsight
-                    messages={messages}
-                    isTyping={isAiTyping}
-                    error={error}
-                    onSendMessage={handleSendMessage}
+              <div className="lg:col-span-1 flex flex-col">
+                <div className="bg-brand-secondary p-4 md:p-6 rounded-xl shadow-lg flex-grow flex flex-col">
+                  <h2 className="text-xl font-semibold text-brand-text mb-4 flex items-center shrink-0">
+                    <SparklesIcon className="h-6 w-6 text-brand-cyan mr-2" />
+                    AI-Powered Insight
+                  </h2>
+                  <AiInsight 
+                    messages={messages} 
+                    isTyping={isAiTyping} 
+                    error={error} 
+                    onSendMessage={handleSendMessage} 
                   />
                 </div>
               </div>
@@ -160,14 +126,12 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="flex h-screen bg-dark-950 font-sans overflow-hidden">
+    <div className="flex h-screen bg-brand-primary font-sans">
       <Sidebar activeView={activeView} setActiveView={setActiveView} />
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header />
-        <main className="flex-1 overflow-y-auto bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950 p-6 lg:p-8">
-          <div className="max-w-[1600px] mx-auto">
-            {renderActiveView()}
-          </div>
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-brand-primary p-4 md:p-8">
+          {renderActiveView()}
         </main>
       </div>
     </div>
